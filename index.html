@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTs Fadhilah Pekanbaru - Madrasah Unggulan Berbasis Al-Qur'an</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #57c5b6;
+            --accent: #f8b400;
+            --light: #f9f9f9;
+            --dark: #1a1a2e;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .bg-primary { background-color: var(--primary) !important; }
+        .bg-secondary { background-color: var(--secondary) !important; }
+        .bg-accent { background-color: var(--accent) !important; }
+        .bg-light { background-color: var(--light) !important; }
+        
+        .text-primary { color: var(--primary) !important; }
+        .text-secondary { color: var(--secondary) !important; }
+        .text-accent { color: var(--accent) !important; }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            transition: all 0.3s;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255,255,255,0.95);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: all 0.3s;
+        }
+        
+        .navbar.scrolled .navbar-brand img {
+            height: 40px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(26, 95, 122, 0.8), rgba(26, 95, 122, 0.8)), url('https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 180px 0 120px;
+            position: relative;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--dark);
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(248, 180, 0, 0.3);
+        }
+        
+        .btn-outline-light {
+            border-width: 2px;
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-light:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            height: 100%;
+            border-bottom: 4px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-bottom-color: var(--accent);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .program-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            margin-bottom: 30px;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .program-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .program-body {
+            padding: 20px;
+            background: white;
+        }
+        
+        .program-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .gallery-item {
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .gallery-item img {
+            transition: all 0.5s;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 95, 122, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin: 15px;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '\201C';
+            font-size: 5rem;
+            color: rgba(87, 197, 182, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .testimonial-role {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        .teacher-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            margin-bottom: 30px;
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .teacher-img {
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .teacher-body {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .teacher-name {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .teacher-subject {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h5 {
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h5:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--dark);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.2rem;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .hero-section {
+                padding: 120px 0 80px;
+                background-attachment: scroll;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.ibb.co/0jZqY7d/mts-fadhilah-logo.png" alt="MTs Fadhilah Pekanbaru">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#programs">Program</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#facilities">Fasilitas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Galeri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary" href="#register">Daftar Sekarang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h1 class="hero-title mb-4">Membentuk Generasi Qur'ani yang Berprestasi</h1>
+                    <p class="hero-subtitle">Madrasah Tsanawiyah Fadhilah Pekanbaru - Lembaga pendidikan unggulan yang mengintegrasikan ilmu umum dan agama dengan fokus pada hafalan Al-Qur'an dan pembentukan akhlak mulia.</p>
+                    <a href="#programs" class="btn btn-primary me-2">Program Kami</a>
+                    <a href="#register" class="btn btn-outline-light">Daftar Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <div class="text-center">
+                        <div class="display-4 fw-bold text-primary">290+</div>
+                        <p class="mb-0 fw-medium">Siswa Aktif</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="text-center">
+                        <div class="display-4 fw-bold text-primary">20</div>
+                        <p class="mb-0 fw-medium">Guru Profesional</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="text-center">
+                        <div class="display-4 fw-bold text-primary">100%</div>
+                        <p class="mb-0 fw-medium">Kelulusan</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="text-center">
+                        <div class="display-4 fw-bold text-primary">10+</div>
+                        <p class="mb-0 fw-medium">Prestasi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="MTs Fadhilah Pekanbaru" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Tentang Kami</h2>
+                    <p>MTs Fadhilah Pekanbaru merupakan salah satu Madrasah yang terdapat di kecamatan Tampan kota Pekanbaru Riau. MTs Fadhilah berada di bawah naungan Yayasan Darel Fadhilah Riau dengan Akta Notaris H. Riyanto, SH MKn. Nomor 52, tanggal 27 Februari 2009.</p>
+                    <p>Berdiri sejak tahun 2012, kami telah berkembang menjadi madrasah unggulan dengan berbagai prestasi akademik dan non-akademik. Kami berkomitmen untuk memberikan pendidikan terbaik yang mengintegrasikan ilmu umum dan agama.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <div class="me-3 text-accent">
+                                    <i class="fas fa-check-circle fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Visi</h5>
+                                    <p class="mb-0">"Terwujudnya Madrasah yang Unggul, Siswa berprestasi, kreatif dan berakhlaq mulia serta menghafal Al-Qur'an"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <div class="me-3 text-accent">
+                                    <i class="fas fa-list-check fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Misi</h5>
+                                    <p class="mb-0">Membimbing siswa dalam menghafal Al-Qur'an, membiasakan ibadah, dan mengembangkan potensi akademik.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary mt-3">Pelajari Lebih Lanjut</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Keunggulan Kami</h2>
+                <p class="lead">Apa yang membuat MTs Fadhilah berbeda?</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-quran"></i>
+                        </div>
+                        <h4>Tahfidz Al-Qur'an</h4>
+                        <p>Program unggulan dengan target hafalan minimal 3 juz selama masa belajar di MTs Fadhilah Pekanbaru.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h4>Guru Berkualitas</h4>
+                        <p>Diajar oleh guru-guru profesional dengan kualifikasi S1 dan S2 yang berpengalaman di bidangnya.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h4>Pembelajaran Adaptif</h4>
+                        <p>Kombinasi pembelajaran daring, luring, dan tatap muka terbatas yang disesuaikan dengan kondisi.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mosque"></i>
+                        </div>
+                        <h4>Pembiasaan Ibadah</h4>
+                        <p>Sholat Dhuha berjamaah, puasa sunnah Senin-Kamis, dan pembinaan akhlak dalam keseharian.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4>Prestasi Gemilang</h4>
+                        <p>Berbagai prestasi akademik dan non-akademik di tingkat kota dan provinsi.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Lingkungan Islami</h4>
+                        <p>Lingkungan pendidikan yang nyaman dan kondusif untuk tumbuh kembang siswa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Program Unggulan</h2>
+                <p class="lead">Program-program yang kami tawarkan untuk pendidikan terbaik putra-putri Anda</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tahfidz Al-Qur'an" class="program-img">
+                        <div class="program-body">
+                            <h4 class="program-title">Program Tahfidz Al-Qur'an</h4>
+                            <p>Program unggulan dengan target hafalan minimal 3 juz selama masa belajar di MTs Fadhilah Pekanbaru.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pembelajaran Adaptif" class="program-img">
+                        <div class="program-body">
+                            <h4 class="program-title">Pembelajaran Adaptif</h4>
+                            <p>Kombinasi pembelajaran daring, luring (home visit), dan tatap muka terbatas dengan protokol kesehatan.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt="Ekstrakurikuler" class="program-img">
+                        <div class="program-body">
+                            <h4 class="program-title">Ekstrakurikuler Unggulan</h4>
+                            <p>Pencak silat, klub sains, tahsin Al-Qur'an, dan berbagai kegiatan pengembangan minat bakat siswa.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">Lihat Semua Program</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Fasilitas Kami</h2>
+                <p class="lead">Dukung proses belajar mengajar yang optimal</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Ruang Kelas">
+                        <div class="card-body">
+                            <h5 class="card-title">Ruang Kelas Nyaman</h5>
+                            <p class="card-text">11 ruang kelas yang dilengkapi dengan fasilitas pendukung pembelajaran modern.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Perpustakaan">
+                        <div class="card-body">
+                            <h5 class="card-title">Perpustakaan</h5>
+                            <p class="card-text">Koleksi buku pelajaran, buku agama, dan literatur pendukung lainnya.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Lab Komputer">
+                        <div class="card-body">
+                            <h5 class="card-title">Lab Komputer</h5>
+                            <p class="card-text">Fasilitas komputer untuk mendukung pembelajaran teknologi informasi.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" class="card-img-top" alt="Musholla">
+                        <div class="card-body">
+                            <h5 class="card-title">Musholla</h5>
+                            <p class="card-text">Tempat ibadah yang nyaman untuk sholat berjamaah dan kegiatan keagamaan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Galeri Kegiatan</h2>
+                <p class="lead">Momen berharga di MTs Fadhilah Pekanbaru</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kegiatan Belajar">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Kegiatan Belajar</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt="Ekstrakurikuler">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Ekstrakurikuler</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tahfidz Al-Qur'an">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Tahfidz Al-Qur'an</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Perpustakaan">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Perpustakaan</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Lab Komputer">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Lab Komputer</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ruang Kelas">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Ruang Kelas</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">Lihat Galeri Lengkap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-white">Apa Kata Mereka?</h2>
+                <p class="lead">Testimoni dari orang tua, siswa, dan alumni</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"MTs Fadhilah memberikan pendidikan yang seimbang antara ilmu umum dan agama. Anak saya menjadi lebih disiplin dalam ibadah dan akademik."</p>
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Orang Tua" class="rounded-circle" width="50">
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="testimonial-author mb-0">Ibu Rahma</h6>
+                                <small class="testimonial-role">Orang Tua Siswa</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Saya sangat bangga menjadi bagian dari MTs Fadhilah. Guru-gurunya sangat perhatian dan metode pembelajarannya menyenangkan."</p>
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Siswa" class="rounded-circle" width="50">
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="testimonial-author mb-0">Ahmad Fauzi</h6>
+                                <small class="testimonial-role">Siswa Kelas IX</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Pendidikan di MTs Fadhilah membekali saya dengan ilmu agama dan umum yang seimbang, sangat membantu saat melanjutkan ke SMA favorit."</p>
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Alumni" class="rounded-circle" width="50">
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="testimonial-author mb-0">Siti Aminah</h6>
+                                <small class="testimonial-role">Alumni 2020</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Guru & Staff Kami</h2>
+                <p class="lead">Tim pengajar profesional yang berdedikasi</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="teacher-card">
+                        <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Guru" class="teacher-img">
+                        <div class="teacher-body">
+                            <h5 class="teacher-name">Ust. Ahmad Fauzi, S.Pd.I</h5>
+                            <p class="teacher-subject">Guru Tahfidz</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="teacher-card">
+                        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Guru" class="teacher-img">
+                        <div class="teacher-body">
+                            <h5 class="teacher-name">Ibu Siti Aminah, M.Pd</h5>
+                            <p class="teacher-subject">Guru Matematika</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="teacher-card">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Guru" class="teacher-img">
+                        <div class="teacher-body">
+                            <h5 class="teacher-name">Ust. Muhammad Ali, S.Ag</h5>
+                            <p class="teacher-subject">Guru Fiqih</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="teacher-card">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Guru" class="teacher-img">
+                        <div class="teacher-body">
+                            <h5 class="teacher-name">Ibu Fatimah Zahra, S.Pd</h5>
+                            <p class="teacher-subject">Guru IPA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">Lihat Semua Guru</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="mb-4">Daftarkan Putra/Putri Anda Sekarang</h2>
+                    <p>Bergabunglah dengan MTs Fadhilah Pekanbaru untuk mendapatkan pendidikan terbaik yang mengintegrasikan ilmu umum dan agama.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Kuota terbatas setiap tahunnya</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Proses pendaftaran mudah</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Beasiswa untuk siswa berprestasi</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <h4 class="card-title text-center text-primary mb-4">Formulir Pendaftaran</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Nama Lengkap Siswa" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Nama Orang Tua" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" class="form-control" placeholder="Nomor Telepon" required>
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-select" required>
+                                        <option value="" selected disabled>Pilih Kelas</option>
+                                        <option value="7">Kelas 7</option>
+                                        <option value="8">Kelas 8</option>
+                                        <option value="9">Kelas 9</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Kirim Pendaftaran</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Hubungi Kami</h2>
+                <p class="lead">Kami siap menjawab pertanyaan Anda</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="contact-info text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Alamat</h4>
+                        <p>Jl. Soekarno-Hatta No. 234, Pekanbaru<br>Riau, Indonesia 28282</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="contact-info text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4>Telepon</h4>
+                        <p>+62 812 3456 7890<br>Senin-Jumat, 08:00 - 16:00 WIB</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="contact-info text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p>info@mtsfadhilahpekanbaru.sch.id<br>admin@mtsfadhilahpekanbaru.sch.id</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.678144981577!2d101.4476098147533!3d0.5079999997410835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMzAnMjguOCJOIDEwMcKwMjYnNTUuNiJF!5e0!3m2!1sen!2sid!4v1621234567890!5m2!1sen!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" class="rounded shadow"></iframe>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <h4 class="card-title text-center text-primary mb-4">Kirim Pesan</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Nama Anda" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Subjek" required>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="5" placeholder="Pesan Anda" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Kirim Pesan</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-logo">
+                        <img src="https://i.ibb.co/0jZqY7d/mts-fadhilah-logo.png" alt="MTs Fadhilah Pekanbaru">
+                    </div>
+                    <p>MTs Fadhilah Pekanbaru - Madrasah Unggulan Berbasis Al-Qur'an yang berkomitmen untuk membentuk generasi Qur'ani yang berprestasi.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-links">
+                        <h5>Menu</h5>
+                        <ul>
+                            <li><a href="#home">Beranda</a></li>
+                            <li><a href="#about">Profil</a></li>
+                            <li><a href="#programs">Program</a></li>
+                            <li><a href="#facilities">Fasilitas</a></li>
+                            <li><a href="#gallery">Galeri</a></li>
+                            <li><a href="#contact">Kontak</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <div class="footer-links">
+                        <h5>Program</h5>
+                        <ul>
+                            <li><a href="#">Tahfidz Al-Qur'an</a></li>
+                            <li><a href="#">Pembelajaran Adaptif</a></li>
+                            <li><a href="#">Ekstrakurikuler</a></li>
+                            <li><a href="#">Pembinaan Akhlak</a></li>
+                            <li><a href="#">Beasiswa Prestasi</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <div class="footer-links">
+                        <h5>Kontak</h5>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> Jl. Soekarno-Hatta No. 234, Pekanbaru</li>
+                            <li><i class="fas fa-phone-alt me-2"></i> +62 812 3456 7890</li>
+                            <li><i class="fas fa-envelope me-2"></i> info@mtsfadhilahpekanbaru.sch.id</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="mt-5" style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 MTs Fadhilah Pekanbaru. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> by Tim IT MTs Fadhilah</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
